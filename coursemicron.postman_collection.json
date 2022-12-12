@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "f7a4c939-d7fa-4681-8ac2-021f67d0b870",
+		"name": "coursemicron",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "JWT Token request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "default"
+					},
+					{
+						"key": "secret",
+						"value": "Pwd@123",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/jwt/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"jwt",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accessing Unrestricted Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/v1/service/unrestricted",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"service",
+						"unrestricted"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accessing Secure Data With JWT Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY3MDg4MjMxOX0.5Vyc2wfgOUIJYdtSZqWOz6yMlbBrc8JQhjWuT8C3GLU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/v1/service/secure",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"service",
+						"secure"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
